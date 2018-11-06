@@ -36,21 +36,28 @@ export class HomePage {
  }
 
   scan(){
-   this.optons={
-     prompt:'Scan Barcode'
-   }
-    this.scanner.scan(this.optons).then(
-      (data)=>{
-      this.ScannedData=data;
-      alert("Scanned Code is " + this.ScannedData.text);
-      
-      this.DeviceID= localStorage.getItem("DeviceID");
-      alert("Your SHQ Device ID is : " + this.DeviceID);
-      },
-      (err)=>{
-        console.log(err);
-      }
-    )
+
+
+    try {
+      this.scanner.scan(this.optons).then(
+        (data)=>{
+        this.ScannedData=data;
+        alert("Scanned Code is " + this.ScannedData.text);
+        
+        this.DeviceID= localStorage.getItem("DeviceID");
+        alert("Your SHQ Device ID is : " + this.DeviceID);
+        },
+        (err)=>{
+          console.log(err);
+        }
+      )
+  }
+  catch(err) {
+      document.getElementById("demo").innerHTML = err.message;
+  }
+
+
+  
 
   }
 
