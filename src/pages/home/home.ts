@@ -37,7 +37,7 @@ export class HomePage {
     this.scanner.scan(this.optons).then(
       (data)=>{
       this.ScannedData=data;
-
+      alert(this.ScannedData);
       },
       (err)=>{
         console.log(err);
