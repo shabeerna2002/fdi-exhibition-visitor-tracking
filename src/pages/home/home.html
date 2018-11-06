@@ -1,27 +1,39 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>SHARJAH FDI 2018</ion-title>
+    <ion-title>
+      <img src="https://s3-eu-west-1.amazonaws.com/sharjahfdi/images/app-logo.png" height="60" />
+
+    </ion-title>
   </ion-navbar>
+ 
 </ion-header>
 
-<ion-content > 
+<ion-content style="background-image: url('https://s3-eu-west-1.amazonaws.com/sharjahfdi/images/app-bg.jpg?id=4');"> 
+
+   
     <div >
-  <h2 padding>Welcome Shabbeer</h2>
+  <h2 padding style="font-family: 'Lato', sans-serif;">Welcome to VTrack </h2>
+  <p padding>
+    Welcome to Sharjah FDI 2018 Visitor Tracking System. Scan the QR code of the guest.
+  </p>
 
   <p>
     <button ion-button block (click)="scan()">SCAN</button>
   </p>
-  <p>
+  <p style="display:none; visibility:hidden;">
     <label>The scanned Code is </label> <br>
     {{ScannedData.text}}
   </p>
-  <p>
-    This is simply amazing project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+ 
+ 
 </div>
 </ion-content>
+<ion-footer paddding  no-border> 
+    <p style="padding: 10px;">
+        <img src="https://s3-eu-west-1.amazonaws.com/sharjahfdi/images/app-footer-logo.png" />
+     </p>
+  <div align="center" style="padding:10px; color:white; font-family: 'Lato', sans-serif;">
+  Made in Sharjah with <i class="fas fa-heart"></i> by IT deparment, SHUROOQ
+</div>
+</ion-footer>

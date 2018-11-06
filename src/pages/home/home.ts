@@ -15,6 +15,7 @@ export class HomePage {
  encodedData:any={};
  ScannedData:any={};
  StandID:string;
+ DeviceID:string;
 
   constructor(public navCtrl: NavController, public scanner:BarcodeScanner) {
      
@@ -25,8 +26,11 @@ export class HomePage {
    //Add 'implements OnInit' to the class.
 
  
-   localStorage.setItem("StandID","123");
-  this.StandID= localStorage.getItem("StandID");
+   
+
+  if ( localStorage.getItem("DeviceID") !==null || localStorage.getItem("DeviceID")==undefined){
+      localStorage.setItem("DeviceID",this.makeid());
+  }
  
 
  }
@@ -38,8 +42,10 @@ export class HomePage {
     this.scanner.scan(this.optons).then(
       (data)=>{
       this.ScannedData=data;
-      alert(this.ScannedData);
-      alert(this.StandID);
+      alert("Scanned Code is " + this.ScannedData.text);
+      
+      this.DeviceID= localStorage.getItem("DeviceID");
+      alert("Your SHQ Device ID is : " + this.DeviceID);
       },
       (err)=>{
         console.log(err);
@@ -47,5 +53,16 @@ export class HomePage {
     )
 
   }
+
+  makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+    for (var i = 0; i < 12; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+    return text;
+  }
+  
 
 }
