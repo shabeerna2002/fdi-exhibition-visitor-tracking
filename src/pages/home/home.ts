@@ -14,6 +14,7 @@ export class HomePage {
  encodeText:string="";
  encodedData:any={};
  ScannedData:any={};
+ StandID:string;
 
   constructor(public navCtrl: NavController, public scanner:BarcodeScanner) {
      
@@ -24,9 +25,9 @@ export class HomePage {
    //Add 'implements OnInit' to the class.
 
  
-   localStorage.setItem("StandID","1");
-   let StandID= localStorage.getItem("StandID");
-  // alert(StandID);
+   localStorage.setItem("StandID","123");
+  this.StandID= localStorage.getItem("StandID");
+ 
 
  }
 
@@ -38,6 +39,7 @@ export class HomePage {
       (data)=>{
       this.ScannedData=data;
       alert(this.ScannedData);
+      alert(this.StandID);
       },
       (err)=>{
         console.log(err);
