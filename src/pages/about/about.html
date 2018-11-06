@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label>Stand</ion-label>
+        <ion-select>
+
+          <ion-option *ngFor="let item of stands; let i = index">{{item.stand}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+      <button ion-button block >Save</button>
+
+     
+ 
+  
+</ion-content>
