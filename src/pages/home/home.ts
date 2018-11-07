@@ -28,8 +28,8 @@ export class HomePage {
  
    
 
-  if ( localStorage.getItem("DeviceID") !==null || localStorage.getItem("DeviceID")==undefined){
-      localStorage.setItem("DeviceID",this.makeid());
+  if ( window.localStorage.getItem("DeviceID") ==null || window.localStorage.getItem("DeviceID") ==undefined){
+      window.localStorage.setItem("DeviceID",this.makeid());
   }
  
 
@@ -41,11 +41,16 @@ export class HomePage {
     try {
       this.scanner.scan(this.optons).then(
         (data)=>{
-        this.ScannedData=data;
-        alert("Scanned Code is " + this.ScannedData.text);
         
-        this.DeviceID= localStorage.getItem("DeviceID");
-        alert("Your SHQ Device ID is : " + this.DeviceID);
+      if(data.cancelled== true){
+        alert('cancelled');
+      } 
+      else{
+        this.ScannedData=data;
+        // alert("Thank You");
+        alert(window.localStorage.getItem("DeviceID"));
+      }
+       
         },
         (err)=>{
           console.log(err);
