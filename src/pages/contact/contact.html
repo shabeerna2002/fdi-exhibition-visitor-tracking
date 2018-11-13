@@ -8,11 +8,9 @@
    
   </ion-header>
 
-  <ion-content>
-    <iframe src="https://app2.sli.do/event/penbzr1m" frameborder="0" height="100%" width="100%"></iframe>
-  </ion-content>
+ 
 
-  <!--
+
   <ion-content style="background-image: url('https://s3-eu-west-1.amazonaws.com/sharjahfdi/images/app-bg.jpg?id=4');" padding>
     
     <div style="font-family: 'Lato', sans-serif; line-height:25px;">
@@ -25,11 +23,26 @@
 
   <p>
     Alternatively you may reach us at :<br/>
-    0558233628 (Mahendra Kakumanu) <br/>
-    055878854 (Hamed Al Herbawi)<br/>
-    055874423 (Shabbeer Mohammed)<br/>
-    055873423 (Amir Al Hosany)<br/>
+     Mr. Mahendra Kakumanu - 0504829956 <br/>
+     Mr. Hamed Al Herbawi - 0553919229<br/>
+     Mr. Amir Al Hosany - 0557371660 <br/>
+    Mr. Shabbeer Mohammed - 0558233628<br/>
+   
   </p>
 </div>
 </ion-content>
--->
+
+
+<ion-footer paddding  no-border>
+  <div *ngIf="SelectedStand">
+
+ 
+  <h4 padding align="center">Stand : {{SelectedStand}} </h4>
+</div>
+  <p style="padding: 10px;">
+      <img src="https://s3-eu-west-1.amazonaws.com/sharjahfdi/images/app-footer-logo.png" />
+   </p>
+<div align="center" style="padding:10px; color:white; font-family: 'Lato', sans-serif;">
+Made in Sharjah with <i class="fas fa-heart"></i> by IT deparment, SHUROOQ
+</div>
+</ion-footer>

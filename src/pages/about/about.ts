@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,AlertController  } from 'ionic-angular';
 import { ExhibitionProvider } from '../../providers/exhibition/exhibition';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -10,10 +10,13 @@ import { Subscription } from 'rxjs/Subscription';
 export class AboutPage {
 
   stands :any[];
+  StandID:string;
   ExhibitionStandServiceSubcription:Subscription;
-  constructor(private ExhibitionStandService:ExhibitionProvider,public navCtrl: NavController) {
+  constructor(private ExhibitionStandService:ExhibitionProvider,public navCtrl: NavController,private alertCtrl: AlertController) {
     
   }
+
+
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -29,14 +32,54 @@ export class AboutPage {
       localStorage.setItem("fdi-devicekey",this.makeid()) 
     }
 
-    console.log(localStorage.getItem("fdi-devicekey"));
+    if ( window.localStorage.getItem("fdi-standid") ==null || window.localStorage.getItem("fdi-standid") ==undefined){
+    
+    }  else{
+      this.StandID=window.localStorage.getItem("fdi-standid")
+    }
+
+  
+   
+
+
+
+    //console.log(localStorage.getItem("fdi-devicekey"));
   
   }
+
+  
+
+  SaveStandDetails(){
+     //alert(this.StandID);
+     
+     localStorage.setItem("fdi-standid",this.StandID); 
+     this.ExhibitionStandServiceSubcription=this.ExhibitionStandService.GetExhibitionStandNameFromStandID(this.StandID).subscribe(
+      (response)=>{
+        this.ExhibitionStandService.UpdateStand(response);
+      }
+     )
+     
+     this.SuccessAlert();
+ 
+  }
+
+  SuccessAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Saved Successfully',
+      subTitle: 'Stand details saved successfully',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
+
 
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    this.ExhibitionStandServiceSubcription.unsubscribe();
+    if (this.ExhibitionStandServiceSubcription !=undefined || this.ExhibitionStandServiceSubcription !=null){
+      this.ExhibitionStandServiceSubcription.unsubscribe();
+    }
     this.stands=[];
   }
 
