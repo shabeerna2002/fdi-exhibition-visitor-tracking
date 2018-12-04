@@ -7,6 +7,7 @@ import { ExhibitionProvider } from '../../providers/exhibition/exhibition';
 import { Subscription } from 'rxjs';
 
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -54,6 +55,13 @@ export class HomePage {
    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
    //Add 'implements OnInit' to the class.  
   
+
+   this.ExhibitionStandService.CreateRegistartion().subscribe(
+    (response)=>{
+     console.log(response);
+    }
+   )
+   
 
   if ( window.localStorage.getItem("DeviceID") ==null || window.localStorage.getItem("DeviceID") ==undefined){
       window.localStorage.setItem("DeviceID",this.makeid());

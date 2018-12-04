@@ -30,6 +30,11 @@ export class ExhibitionProvider {
     return this.http.get<string>(this.ApiEndPoint + "/values/standvisitor/AB657GF1510HGK/1/"+ QRCode + "/"+ StandID + "/" + DeviceKey,{responseType:"json"});
   }
 
+  public CreateRegistartion(){
+    // return "Mr. ABDUL SHABBEER visited your stand"
+     //return this.http.get<string>(this.ApiEndPoint + "/values/standvisitor/AB657GF1510HGK/1/" + QRCode + "/" + StandID + "/" + DeviceKey,{responseType:"json"});
+     return this.http.get<string>("http://api.registration.investinsharjah.ae/webservices/api.asmx/GuestRegistration?APIKey=YKAHB9KIPQ&Salutation=Mr.&FirstName=Abdul&LastName=Shabbeer&Company=Shurooq&Designation=Technical%20Architect&Nationality=India&NationalityCode=in&Email=f.pattayi@alqasba.ae&MobileCode=971&MobileNo=558233628&LandlineCode=04&LandlineNo=325898&isVIP=false&Industry=Accounting&isMediaPerson=false&issubscribednewsletter=false&ForceUpdate=false");
+   }
 
   
 
