@@ -88,4 +88,8 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value="Scan QR-Codes" />
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
+    <config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription" overwrite="true">
+  <string>Allow the app to use your camera</string>
+</config-file>
+
 </widget>
