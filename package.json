@@ -56,7 +56,7 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "phonegap-plugin-barcodescanner": {
-        "CAMERA_USAGE_DESCRIPTION": "Scan QR-Codes",
+        "CAMERA_USAGE_DESCRIPTION": "Allow the app to use your camera to scan QR and Barcodes. This app will use your camera to scan the QR code of the visitors.",
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       }
     },
