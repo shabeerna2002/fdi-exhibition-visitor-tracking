@@ -92,7 +92,7 @@ export class HomePage {
 
  SettingsAlert() {
   let alert = this.alertCtrl.create({
-    title: 'Welcome to Sharjah FDI 2018 Visitor Tracker',
+    title: 'Welcome to Sharjah FDI  Visitor Tracker',
     subTitle: 'Please select the stand and Save.',
     buttons: ['Ok']
   });
